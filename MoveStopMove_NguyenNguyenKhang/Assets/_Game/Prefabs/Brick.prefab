@@ -99,7 +99,7 @@ GameObject:
   m_Name: block_brick_black_1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1244926867200186959
@@ -182,7 +182,7 @@ GameObject:
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7053933471436853104
@@ -265,7 +265,7 @@ GameObject:
   m_Name: block_brick_black_1_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5130847679151560610

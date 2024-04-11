@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPoint: {fileID: 6771855722597937303}
-  bulletPrefab: {fileID: -5747216560230156008, guid: c527db8359dc619429311871390a95f4, type: 3}
+  bulletPrefab: {fileID: 3698093059259369988, guid: c527db8359dc619429311871390a95f4, type: 3}
 --- !u!1001 &4001975442533218544
 PrefabInstance:
   m_ObjectHideFlags: 0

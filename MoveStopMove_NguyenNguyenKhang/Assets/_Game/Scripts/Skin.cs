@@ -6,6 +6,6 @@ using UnityEngine;
 public class Skin : MonoBehaviour
 {
     public WeaponBase weapon;
-    public Hat hat;
-    public Pant pant;
+    public GameObject hat;
+    public Material pant;
 }

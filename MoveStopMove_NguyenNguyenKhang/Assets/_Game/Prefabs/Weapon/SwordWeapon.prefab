@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979075944195778353}
+  - component: {fileID: 5964356397693587744}
   m_Layer: 0
   m_Name: SwordWeapon
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   - {fileID: 6146100519614194299}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5964356397693587744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151539343428995161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e49237a9d6e25c4388d64e86972b4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPoint: {fileID: 2979075944195778353}
+  bulletPrefab: {fileID: 3085578624075786677, guid: 7940098aea47b8942a848acc1cc2248c, type: 3}
 --- !u!1001 &6150461978120970855
 PrefabInstance:
   m_ObjectHideFlags: 0

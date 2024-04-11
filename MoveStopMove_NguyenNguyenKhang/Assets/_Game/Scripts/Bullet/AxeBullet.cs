@@ -12,6 +12,7 @@ public class AxeBullet :BulletBase
     // Update is called once per frame
     void Update()
     {
-        transform.position+= direction *moveSpeed * Time.deltaTime;
+        //transform.position+= direction *moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed*Time.deltaTime);
     }
 }

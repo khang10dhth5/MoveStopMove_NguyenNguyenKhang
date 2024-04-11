@@ -5,17 +5,17 @@ using UnityEngine;
 public class AttackState : IState
 {
     private float timer;
-    private float randomTime;
+    private float attackTime;
     public void OnEnter(Enemy enemy)
     {
         enemy.StopMoving();
         timer = 0;
-        randomTime = Random.Range(1f,3f);
+        attackTime =2f;
     }
     public void OnExcute(Enemy enemy)
     {
         timer += Time.deltaTime;
-        if(enemy.currentTarget!=null && timer>=randomTime)
+        if(enemy.currentTarget!=null && timer>=attackTime)
         {
             timer = 0;
             enemy.Throw();

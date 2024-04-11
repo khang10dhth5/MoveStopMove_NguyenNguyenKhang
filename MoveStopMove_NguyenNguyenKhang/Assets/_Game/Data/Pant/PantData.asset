@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2112e2bc008709144a4b6ec5d3aaff6f, type: 3}
+  m_Name: PantData
+  m_EditorClassIdentifier: 
+  listPant:
+  - pantType: 0
+    price: 300
+    imgPant: {fileID: 21300000, guid: 1f7e9eb236c8768498ad5d8078d2533d, type: 3}
+    material: {fileID: 2100000, guid: 96b1f9f5fdf743a4491a004051fe840b, type: 2}
+  - pantType: 1
+    price: 500
+    imgPant: {fileID: 21300000, guid: 3ddbc9e0f3f883a46b1ba9635f87c222, type: 3}
+    material: {fileID: 2100000, guid: 8a27181b3e2c10543941a7bf4f621c08, type: 2}
+  - pantType: 2
+    price: 800
+    imgPant: {fileID: 21300000, guid: 2652851e5f7772041add8ebe7d548f2b, type: 3}
+    material: {fileID: 2100000, guid: f74585a8399001c44b8448d94f230fd8, type: 2}
+  - pantType: 3
+    price: 1000
+    imgPant: {fileID: 21300000, guid: ae9d58ecee0e3f848b8fedb3f2c67648, type: 3}
+    material: {fileID: 2100000, guid: a2cc57499c5ba8c4e9ca1b7173b8f52c, type: 2}
+  - pantType: 4
+    price: 1200
+    imgPant: {fileID: 21300000, guid: 5433d4b044040c44487399b59f52e2b4, type: 3}
+    material: {fileID: 2100000, guid: 7e74f633971bfd644ac0e740f9482a32, type: 2}
+  - pantType: 5
+    price: 1500
+    imgPant: {fileID: 21300000, guid: ea8161e4ed231be438fe9e968bc8752c, type: 3}
+    material: {fileID: 2100000, guid: 58d4780003cedb0438e75c9101893207, type: 2}
+  - pantType: 6
+    price: 1800
+    imgPant: {fileID: 21300000, guid: 4d6b3cb74098a8640b03cd004d1dcdbb, type: 3}
+    material: {fileID: 2100000, guid: 93ba226c846dbbc4689baea6c25c5628, type: 2}
+  - pantType: 7
+    price: 2000
+    imgPant: {fileID: 21300000, guid: a39a74b87842b704ab4bc6eec7e6c287, type: 3}
+    material: {fileID: 2100000, guid: da2ba826fd0efe245932afff016781f8, type: 2}
+  - pantType: 8
+    price: 2200
+    imgPant: {fileID: 21300000, guid: 343f00cc518f2c34090d54d64a12c62e, type: 3}
+    material: {fileID: 2100000, guid: 9350735e03261fe45aec40e2c56e2a88, type: 2}
