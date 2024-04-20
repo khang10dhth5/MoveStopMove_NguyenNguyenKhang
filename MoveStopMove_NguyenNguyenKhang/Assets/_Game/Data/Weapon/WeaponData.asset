@@ -15,16 +15,13 @@ MonoBehaviour:
   listWeapon:
   - weaponType: 0
     price: 0
-    speed: 10
     imgWeapon: {fileID: 21300000, guid: c0e85ffc93ead054f8c67b9085091a5d, type: 3}
     weaponPrefab: {fileID: 937069518262083743, guid: 2426aad5e4772ae4cabccf0f69446536, type: 3}
   - weaponType: 1
     price: 300
-    speed: 20
     imgWeapon: {fileID: 21300000, guid: dd589d5d7d6b66747aa154f01a18c01a, type: 3}
     weaponPrefab: {fileID: 645442154995521766, guid: c35b49e3acd79fc46a40523acc792626, type: 3}
   - weaponType: 2
     price: 500
-    speed: 15
-    imgWeapon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    imgWeapon: {fileID: 21300000, guid: c6b148b2d875e90409d91af6d6938b01, type: 3}
     weaponPrefab: {fileID: 5964356397693587744, guid: 5cbcf51f9122dbf40b2ee9ed7233d684, type: 3}

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class AxeBullet :BulletBase
 {
-    private Vector3 direction;
-    private void Start()
+    public override void OnEnable()
     {
-        direction = (targetPos - transform.position).normalized;
+        base.OnEnable();
+        Invoke(nameof(OnDespawn), timeActive);
     }
     // Update is called once per frame
     void Update()
     {
-        //transform.position+= direction *moveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed*Time.deltaTime);
+        TF.position = Vector3.MoveTowards(TF.position, targetPos, moveSpeed * Time.deltaTime);
+        
+
     }
 }

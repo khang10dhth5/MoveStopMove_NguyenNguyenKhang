@@ -10,7 +10,7 @@ public class AttackState : IState
     {
         enemy.StopMoving();
         timer = 0;
-        attackTime =2f;
+        attackTime =enemy.AttackTime;
     }
     public void OnExcute(Enemy enemy)
     {

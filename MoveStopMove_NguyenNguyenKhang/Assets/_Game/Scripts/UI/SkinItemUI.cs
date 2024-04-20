@@ -15,7 +15,7 @@ public class SkinItemUI : MonoBehaviour
         toggle.group = toggleGroup;
         txtName.text = name;
     }
-    public void OnChangValue()
+    public void OnChangeValue()
     {
         if(toggle.isOn)
         {

@@ -5,11 +5,11 @@ using UnityEngine;
 public class CharacterSight : MonoBehaviour
 {
     [SerializeField] private Character character;
+    [SerializeField] private Transform TF;
     private void OnTriggerEnter(Collider other)
     { 
-        if(other.CompareTag(TagName.Character.ToString()))
+        if(other.CompareTag(KeyConstant.TAG_CHACRACTER))
         {
-            Debug.Log("aa");
             Character characterTarget = Cache.GetCharacter(other);
             if(!characterTarget.isDead)
             {
@@ -21,7 +21,7 @@ public class CharacterSight : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(TagName.Character.ToString()))
+        if (other.CompareTag(KeyConstant.TAG_CHACRACTER))
         {
             Character characterTarget = Cache.GetCharacter(other);
             character.RemoveTarget(characterTarget);
@@ -35,7 +35,6 @@ public class CharacterSight : MonoBehaviour
     }
     private void LateUpdate()
     {
-
-       transform.rotation =Quaternion.Euler( Vector3.zero);
+       TF.rotation =Quaternion.Euler( Vector3.zero);
     }
 }

@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class Character : GameUnit
 {
-    public Character currentTarget;
-    public List<Character> listTarget;
-
-    public bool isDead;
-
+    [SerializeField] private LevelCharacter levelCharacter;
+    [SerializeField] private GameObject model;
     [SerializeField] private Animator amin;
     [SerializeField] private AminState currentAmin;
     [SerializeField] protected Transform weaponTransform;
     [SerializeField] protected Transform hatTransform;
     [SerializeField] protected Renderer pant;
 
-    protected Skin currentSkin=new Skin();
+    public Character currentTarget;
+    public List<Character> listTarget;
+    public int currentLevel;
+    public bool isDead;
+
+    protected Skin currentSkin = new Skin();
 
     private void Start()
     {
@@ -25,8 +27,17 @@ public class Character : GameUnit
     public virtual void OnInit()
     {
         isDead = false;
+        currentLevel = 1;
+        currentAmin = AminState.Idle;
+        levelCharacter.SetLevel(currentLevel.ToString());
+        model.transform.localScale = new Vector3(1, 1, 1);
     }
-
+    public void SetLevel(int level)
+    {
+        currentLevel += level;
+        model.transform.localScale =new Vector3(1,1,1)+ new Vector3(0.1f, 0.1f, 0.1f) * ( currentLevel);
+        levelCharacter.SetLevel(currentLevel.ToString());
+    }
     public void AddTarget(Character target)
     {
         listTarget.Add(target);
@@ -41,13 +52,12 @@ public class Character : GameUnit
     }
     public virtual void OnDead()
     {
-        ChangeAmin(AminState.dead);
+        ChangeAmin(AminState.Dead);
         isDead = true;
     }
 
     public void Throw()
     {
-        
         if(currentTarget==null)
         {
             return;
@@ -57,7 +67,7 @@ public class Character : GameUnit
             SetNewTarget();
             return;
         }
-        ChangeAmin(AminState.attack);
+        ChangeAmin(AminState.Attack);
         transform.LookAt(currentTarget.transform.position);
 
         Vector3 target=currentTarget.transform.position+Vector3.up;
@@ -69,17 +79,14 @@ public class Character : GameUnit
     {
         victim.Dead();
         attacker.RemoveTarget(victim);
+        attacker.SetLevel(victim.currentLevel);
         attacker.SetNewTarget();
-
-        LevelManager.Instance.countCharacter();
+        LevelManager.Instance.RemoveCharacter(victim);
+        
     }
 
     protected void ChangeAmin(AminState animation)
     {
-        if(currentAmin==null)
-        {
-            currentAmin = AminState.idle;
-        }
         if(currentAmin!=animation)
         {
             amin.ResetTrigger(currentAmin.ToString());
@@ -94,6 +101,12 @@ public class Character : GameUnit
         if(listTarget.Count>0)
         {
             currentTarget = listTarget[UnityEngine.Random.Range(0, listTarget.Count)];
+            if(currentTarget.isDead)
+            {
+                listTarget.Remove(currentTarget);
+                SetNewTarget();
+            }
         }
+
     }
 }

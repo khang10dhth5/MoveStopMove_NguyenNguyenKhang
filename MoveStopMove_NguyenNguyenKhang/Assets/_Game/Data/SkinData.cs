@@ -8,7 +8,7 @@ public class SkinData : SingletonMono<SkinData>
     public PantSO pantSO;
     public WeaponSO weaponSO;
 
-    public GameObject GetHat(HatType hatType)
+    public Hat GetHat(HatType hatType)
     {
         for (int i = 0; i < hatSO.listHat.Count; i++)
         {
@@ -22,7 +22,6 @@ public class SkinData : SingletonMono<SkinData>
 
     public Material GetPant(PantType pantType)
     {
-        Debug.Log(pantType);
         for (int i = 0; i < pantSO.listPant.Count; i++)
         {
             if (pantSO.listPant[i].pantType == pantType)

@@ -6,15 +6,22 @@ using UnityEngine.AI;
 
 public class Enemy : Character
 {
-    public NavMeshAgent nav;
-    public bool isMoving;
-
     [SerializeField] private float radius;
-    private IState currentState;
+    [SerializeField] private NavMeshAgent nav;
+    [SerializeField] private float idleTime;
+    [SerializeField] private float attackTime;
+    private bool isMoving;
 
+    public NavMeshAgent Nav { get => nav; set => nav = value; }
+    public bool IsMoving { get => isMoving; set => isMoving = value; }
+    public float IdleTime { get => idleTime; set => idleTime = value; }
+    public float AttackTime { get => attackTime; set => attackTime = value; }
+
+    private IState currentState;
     private void Start()
     {
         OnInit();
+        GetSkin();
     }
     private void Update()
     {
@@ -22,22 +29,17 @@ public class Enemy : Character
         {
             currentState.OnExcute(this);
         }
-        if(Vector3.Distance(transform.position, nav.destination)<0.5f)
+        if(Vector3.Distance(TF.position, Nav.destination)<0.5f)
         {
-            isMoving = false;
+            IsMoving = false;
         }
-    }
-    private void Awake()
-    {
     }
 
     public override void OnInit()
     {
-        GetSkin();
-
         base.OnInit();
         currentState = new IdleState();
-        isMoving = false;
+        IsMoving = false;
         
     }
 
@@ -45,12 +47,12 @@ public class Enemy : Character
     {
 
         int weaponIndex = UnityEngine.Random.Range(0, SkinData.Instance.weaponSO.listWeapon.Count);
-        WeaponBase weapon = SkinData.Instance.GetWeapon((WeaponType)0);
-        currentSkin.weapon = Instantiate(weapon,weaponTransform);
+        currentSkin.weapon = SimplePool.Spawn<WeaponBase>(KeyConstant.ConvertWeaponTypeToPoolType((WeaponType)weaponIndex), weaponTransform.position, Quaternion.identity);
+        currentSkin.weapon.TF.SetParent(weaponTransform);
 
         int hatIndex = UnityEngine.Random.Range(0, SkinData.Instance.hatSO.listHat.Count);
-        GameObject hat = Instantiate(SkinData.Instance.GetHat((HatType)hatIndex), hatTransform);
-        currentSkin.hat = hat;
+        currentSkin.hat = SimplePool.Spawn<Hat>(KeyConstant.ConvertHatTypeToPoolType((HatType)hatIndex), hatTransform.position, Quaternion.identity);
+        currentSkin.hat.TF.SetParent(hatTransform);
 
 
         int pantIndex = UnityEngine.Random.Range(0, SkinData.Instance.pantSO.listPant.Count);
@@ -61,10 +63,10 @@ public class Enemy : Character
 
     public Vector3 RandomDestination()
     {
-          isMoving =true;
+          IsMoving =true;
 
           Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * radius;
-          randomDirection += transform.position;
+          randomDirection += TF.position;
           NavMeshHit hit;
           Vector3 finalPosition = Vector3.zero;
 
@@ -77,15 +79,14 @@ public class Enemy : Character
     }
     internal void Moving()
     {
-        ChangeAmin(AminState.run);
+        ChangeAmin(AminState.Run);
 
     }
 
     public override void OnDead()
     {
         base.OnDead();
-        //Destroy(gameObject, 2f);
-        Invoke("DestroyEnemy", 2f);
+        Invoke(nameof(DestroyEnemy), 2f);
     }
     private void DestroyEnemy()
     {
@@ -93,9 +94,9 @@ public class Enemy : Character
     }
     internal void StopMoving()
     {
-        nav.destination = transform.position;
-        ChangeAmin(AminState.idle);
-        isMoving = false;
+        Nav.destination = TF.position;
+        ChangeAmin(AminState.Idle);
+        IsMoving = false;
     }
 
     internal void ChangeState(IState state)

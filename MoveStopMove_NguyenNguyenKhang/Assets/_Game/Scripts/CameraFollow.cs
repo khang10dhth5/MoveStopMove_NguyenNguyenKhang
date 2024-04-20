@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CameraFollow : SingletonMono<CameraFollow>
 {
-    public Transform target;
+    [SerializeField] private Transform TF;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float moveSpeed;
+
+    [HideInInspector] public Transform target;
+
     private void LateUpdate()
     {
         if (target)
         {
-            transform.position =Vector3.MoveTowards(transform.position, target.position + offset, moveSpeed);
-            transform.LookAt(target);
+            TF.position =Vector3.MoveTowards(TF.position, target.position + offset, moveSpeed*Time.deltaTime);
+            TF.LookAt(target);
         }
     }
 }

@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class Map : MonoBehaviour
 {
-    public NavMeshData navMesh;
-    public int enemyAmount;
+    [SerializeField] private Player playerPrefabs;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private float radiusMap;
 
     [HideInInspector] public Player player;
 
-    [SerializeField] private Player playerPrefabs;
-    [SerializeField] private Transform startPoint;
+    public NavMeshData navMesh;
+    public int enemyAmount;
+    public int reward;
 
     private void Start()
     {
@@ -20,14 +22,16 @@ public class Map : MonoBehaviour
 
     private void OnInit()
     {
+
         player = Instantiate(playerPrefabs, startPoint.position, startPoint.rotation);
-        //player.joystick = UIManager.Instance.joystick;
         CameraFollow.Instance.target = player.transform;
- 
         for(int i = 0; i < enemyAmount; i++)
         {
-            SimplePool.Spawn<Enemy>(PoolType.Bot, startPoint.position + new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50)), startPoint.rotation);
+            Enemy enemy=SimplePool.Spawn<Enemy>(PoolType.Bot, startPoint.position + new Vector3(Random.Range(-radiusMap,radiusMap), 0, Random.Range(-radiusMap, radiusMap)), startPoint.rotation);
+            enemy.OnInit();
+            LevelManager.Instance.listCharacter.Add(enemy);
         }
+        OffscreenIndicator.InstantiateIndicators();
 
     }
 }

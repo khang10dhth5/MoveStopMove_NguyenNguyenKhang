@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,13 @@ public class CanvasBuyItem : UICanvas
     [SerializeField] private Button btnYes;
     [SerializeField] private Button btnNo;
 
-    public override void SetUp()
+    private void Start()
     {
-        base.SetUp();
+        OnInit();
+    }
+
+    private void OnInit()
+    {
         btnNo.onClick.AddListener(() =>
         {
             Close(0);
@@ -18,19 +23,23 @@ public class CanvasBuyItem : UICanvas
 
         btnYes.onClick.AddListener(() =>
         {
-            if (ShopManager.Instance.shopItemSelected.shopItem.itemType == ItemType.Weapon)
-            {
-                PlayerPrefs.SetInt(KeyConstant.WEAPON + ShopManager.Instance.shopItemSelected.shopItem.itemIndex, 1);
-            }
-            if (ShopManager.Instance.shopItemSelected.shopItem.itemType == ItemType.Hat)
-            {
-                PlayerPrefs.SetInt(KeyConstant.HAT + ShopManager.Instance.shopItemSelected.shopItem.itemIndex, 1);
-            }
-            if (ShopManager.Instance.shopItemSelected.shopItem.itemType == ItemType.Pant)
-            {
-                PlayerPrefs.SetInt(KeyConstant.PANT + ShopManager.Instance.shopItemSelected.shopItem.itemIndex, 1);
-            }
+            ShopItem shopItem = ShopManager.Instance.shopItemSelected.shopItem;
 
+            if (shopItem.itemType == ItemType.Weapon)
+            {
+                UnitDataManager.Instance.UnitData.listWeapon[shopItem.itemIndex]= true;
+            }
+            if (shopItem.itemType == ItemType.Hat)
+            {
+                UnitDataManager.Instance.UnitData.listHat[shopItem.itemIndex] = true;
+            }
+            if (shopItem.itemType == ItemType.Pant)
+            {
+                UnitDataManager.Instance.UnitData.listPant[shopItem.itemIndex] = true;
+            }
+            UnitDataManager.Instance.SaveUnitData();
+
+            GameManager.Instance.GetReward(-shopItem.price);
             ShopManager.Instance.listItemUI.Remove(ShopManager.Instance.shopItemSelected);
             Destroy(ShopManager.Instance.shopItemSelected.gameObject);
             Close(0);

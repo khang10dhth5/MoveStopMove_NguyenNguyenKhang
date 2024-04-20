@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9062539727270401178}
+  - component: {fileID: -7834124317289474539}
   m_Layer: 0
   m_Name: EarHat
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 5590422226234479598}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7834124317289474539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128335838872763556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8648ea909cef86e4f9cbefc809369b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 9
 --- !u!1001 &643908831658522868
 PrefabInstance:
   m_ObjectHideFlags: 0

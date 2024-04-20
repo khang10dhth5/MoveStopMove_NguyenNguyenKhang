@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4118618102204033675}
+  - component: {fileID: 2759916811457100405}
   - component: {fileID: 627097075830594418}
   m_Layer: 0
   m_Name: BoomerangBullet
@@ -33,6 +34,29 @@ Transform:
   - {fileID: 519183054408481469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2759916811457100405
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772751488476447102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19407412
+  m_Height: 1.4988014
+  m_Direction: 1
+  m_Center: {x: 0.120512396, y: 0.0223338, z: 0}
 --- !u!114 &627097075830594418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060112916ce2fc64ba44e344bb9f72f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 1
+  poolType: 4
+  timeActive: 3
   moveSpeed: 20
 --- !u!1001 &519183054408605757
 PrefabInstance:
@@ -118,10 +143,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: cb6e597070ed41f4eb5cb9583c725959, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6628287016460762542}
   m_SourcePrefab: {fileID: 100100000, guid: cb6e597070ed41f4eb5cb9583c725959, type: 3}
 --- !u!4 &519183054408481469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cb6e597070ed41f4eb5cb9583c725959, type: 3}
   m_PrefabInstance: {fileID: 519183054408605757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &519183054408574621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: cb6e597070ed41f4eb5cb9583c725959, type: 3}
+  m_PrefabInstance: {fileID: 519183054408605757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6628287016460762542
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519183054408574621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8573f781af03c8c45b71f739273131eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

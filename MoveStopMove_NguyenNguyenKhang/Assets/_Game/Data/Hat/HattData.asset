@@ -16,32 +16,32 @@ MonoBehaviour:
   - hatType: 0
     price: 100
     imgHat: {fileID: 21300000, guid: eb69cff6254433d4e9c38084ef04f590, type: 3}
-    hatPrefab: {fileID: 1260049496479677647, guid: 1a8bf0594a09a9742a668acddf58c511, type: 3}
+    hatPrefab: {fileID: -7165402833068139026, guid: 1a8bf0594a09a9742a668acddf58c511, type: 3}
   - hatType: 1
     price: 300
     imgHat: {fileID: 21300000, guid: e18f18b183a01424f8c20f088905e355, type: 3}
-    hatPrefab: {fileID: 2043828809417818845, guid: 85fcbc9480ceeae479132f75442aad81, type: 3}
+    hatPrefab: {fileID: 5363377105682217132, guid: 85fcbc9480ceeae479132f75442aad81, type: 3}
   - hatType: 2
     price: 400
     imgHat: {fileID: 21300000, guid: 5c06bab390a79764d8d0539b57b1cf45, type: 3}
-    hatPrefab: {fileID: 239751280763416220, guid: 2ba9f7cbab95a8f42872bc604afaa679, type: 3}
+    hatPrefab: {fileID: -673919492065685682, guid: 2ba9f7cbab95a8f42872bc604afaa679, type: 3}
   - hatType: 3
     price: 700
     imgHat: {fileID: 21300000, guid: da18f161bc01907449ffa4e6f5b50614, type: 3}
-    hatPrefab: {fileID: 9128335838872763556, guid: b0fcee562f493744ab7faf3ea82c8e08, type: 3}
+    hatPrefab: {fileID: -7834124317289474539, guid: b0fcee562f493744ab7faf3ea82c8e08, type: 3}
   - hatType: 4
     price: 1000
     imgHat: {fileID: 21300000, guid: 703801d9a7f60c244a3ee076f49edb23, type: 3}
-    hatPrefab: {fileID: 2436832192616345579, guid: bf2e053e81134194e96d6b7d88d0c2e3, type: 3}
+    hatPrefab: {fileID: -4890430753272098290, guid: bf2e053e81134194e96d6b7d88d0c2e3, type: 3}
   - hatType: 5
     price: 1200
     imgHat: {fileID: 21300000, guid: afbe2aeef5262db48ac8ac1124dfd412, type: 3}
-    hatPrefab: {fileID: 2462512901664424427, guid: a518a64991b10bb429d93293534f6841, type: 3}
+    hatPrefab: {fileID: -6127583744707807075, guid: a518a64991b10bb429d93293534f6841, type: 3}
   - hatType: 6
     price: 1500
     imgHat: {fileID: 21300000, guid: 618234528de04654db5493d4d04dbbf2, type: 3}
-    hatPrefab: {fileID: 4133113375628698773, guid: 1d31c3c66a6e6414ebd9ab0e791be485, type: 3}
+    hatPrefab: {fileID: -7861045453762954113, guid: 1d31c3c66a6e6414ebd9ab0e791be485, type: 3}
   - hatType: 7
     price: 1800
     imgHat: {fileID: 21300000, guid: 578c1840f64bd634bad62c6f60eba249, type: 3}
-    hatPrefab: {fileID: 7526622066761498816, guid: 40e7a41dad9c68f488da88e50f3a7763, type: 3}
+    hatPrefab: {fileID: 5947768637033078777, guid: 40e7a41dad9c68f488da88e50f3a7763, type: 3}

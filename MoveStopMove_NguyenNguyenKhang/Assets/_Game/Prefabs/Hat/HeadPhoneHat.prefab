@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5844156091098310314}
+  - component: {fileID: -4890430753272098290}
   m_Layer: 0
   m_Name: HeadPhoneHat
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 2844456358516394746}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4890430753272098290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2436832192616345579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8648ea909cef86e4f9cbefc809369b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 10
 --- !u!1001 &7062555926911328736
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 811537790194354595}
   - component: {fileID: 4026644338741557195}
   m_Layer: 0
-  m_Name: Map_1
+  m_Name: Map_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,11 +215,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcc8e7a3a227224a9ce93f55f7e15e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemyAmount: 10
   playerPrefabs: {fileID: 335559968920387361, guid: 1fae7e831082b5f408f7c22fe355ec0d, type: 3}
   startPoint: {fileID: 5682821356153882817}
+  radiusMap: 50
+  player: {fileID: 0}
   navMesh: {fileID: 23800000, guid: c445a401899572748be54ea86c14384c, type: 2}
+  enemyAmount: 10
+  reward: 300
 --- !u!1 &1309321211919489229
 GameObject:
   m_ObjectHideFlags: 0

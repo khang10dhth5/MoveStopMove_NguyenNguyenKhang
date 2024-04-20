@@ -15,7 +15,7 @@ public class UIManager : SingletonMono<UIManager>
     {
 
         //load ui prefab tu resources
-        UICanvas[] prefabs = Resources.LoadAll<UICanvas>("UI/");
+        UICanvas[] prefabs = Resources.LoadAll<UICanvas>(KeyConstant.UI_PATH);
         for(int i=0;i< prefabs.Length;i++)
         {
             canvasPrefabs.Add(prefabs[i].GetType(), prefabs[i]);

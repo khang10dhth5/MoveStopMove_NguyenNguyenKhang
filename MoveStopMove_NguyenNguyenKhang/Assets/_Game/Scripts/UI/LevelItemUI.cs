@@ -13,7 +13,7 @@ public class LevelItemUI : MonoBehaviour
     internal void SetLevel(LevelItem levelItem, Action<int> onClick)
     {
         imgLevel.sprite = levelItem.imgLevel;
-        txtLevel.text = levelItem.levelIndex.ToString();
+        txtLevel.text = (levelItem.levelIndex+1).ToString();
         btnOnClick.onClick.AddListener(() =>
         {
             onClick.Invoke(levelItem.levelIndex);

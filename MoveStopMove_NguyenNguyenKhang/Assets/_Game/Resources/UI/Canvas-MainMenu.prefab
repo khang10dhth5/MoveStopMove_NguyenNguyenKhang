@@ -398,6 +398,7 @@ MonoBehaviour:
   btnShop: {fileID: 4103121083845684791}
   btnCollect: {fileID: 3797297581264359420}
   btnPlayGame: {fileID: 7665714407631799800}
+  txtCoin: {fileID: 6159822196564328521}
 --- !u!1 &3327750677258069990
 GameObject:
   m_ObjectHideFlags: 0

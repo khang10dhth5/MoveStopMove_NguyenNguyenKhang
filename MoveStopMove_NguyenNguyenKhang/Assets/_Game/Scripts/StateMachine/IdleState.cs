@@ -10,7 +10,7 @@ public class IdleState : IState
     {
         enemy.StopMoving();
         timer = 0;
-        randomTime = Random.Range(2f, 4f);
+        randomTime =enemy.IdleTime;
 
     }
     public void OnExcute(Enemy enemy)

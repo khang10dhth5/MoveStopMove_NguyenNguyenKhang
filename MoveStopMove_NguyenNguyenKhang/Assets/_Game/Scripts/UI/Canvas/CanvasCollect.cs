@@ -9,6 +9,7 @@ public class CanvasCollect : UICanvas
     [SerializeField] private Button btnBackMainMenu;
     [SerializeField] private Button btnSetting;
     [SerializeField] private Button btnUseItem;
+    [SerializeField] private Text txtCoin;
     [SerializeField] private Transform gridLayoutGroup;
     [SerializeField] private ToggleGroup SkinToggleGroup;
     [SerializeField] private ToggleGroup collectItemUIToggleGroup;
@@ -18,38 +19,23 @@ public class CanvasCollect : UICanvas
     {
         OnInit();
     }
-    public override void SetUp()
-    {
-        base.SetUp();
-        btnSetting.onClick.AddListener(() =>
-        {
-            SettingButton();
-        });
-        btnBackMainMenu.onClick.AddListener(() =>
-        {
-            BackMainMenuButton();
-        });
-        btnUseItem.onClick.AddListener(() =>
-        {
-            UseButton();
-        });
-    }
 
     private void UseButton()
     {
         CollectItem collectIem = CollectManager.Instance.collectItemSelected.collectItem;
         if (collectIem.itemType==ItemType.Weapon)
         {
-            PlayerPrefs.SetInt(KeyConstant.CURRENT_WEAPON, collectIem.itemIndex);
+            UnitDataManager.Instance.UnitData.currentWeaponIndex = collectIem.itemIndex;
         }
         if (collectIem.itemType == ItemType.Hat)
         {
-            PlayerPrefs.SetInt(KeyConstant.CURRENT_HAT, collectIem.itemIndex);
+            UnitDataManager.Instance.UnitData.currentHatIndex = collectIem.itemIndex;
         }
         if (collectIem.itemType == ItemType.Pant)
         {
-            PlayerPrefs.SetInt(KeyConstant.CURRENT_PANT, collectIem.itemIndex);
+            UnitDataManager.Instance.UnitData.currentPantIndex = collectIem.itemIndex;
         }
+        UnitDataManager.Instance.SaveUnitData();
         CollectManager.Instance.SetUseItem();
     }
 
@@ -66,15 +52,33 @@ public class CanvasCollect : UICanvas
     {
         for(int i=0;i< CollectManager.Instance.listItemUI.Count;i++)
         {
-            if(CollectManager.Instance.CheckCollect(CollectManager.Instance.listItemUI[i].collectItem.itemType, CollectManager.Instance.listItemUI[i].collectItem.itemIndex)==1)
+            if(CollectManager.Instance.CheckCollect(CollectManager.Instance.listItemUI[i].collectItem.itemType, CollectManager.Instance.listItemUI[i].collectItem.itemIndex)==true)
             {
                 CollectManager.Instance.listItemUI[i].gameObject.SetActive(true);
             }
         }
         CollectManager.Instance.SetUseItem();
     }
+    public override void SetUp()
+    {
+        base.SetUp();
+        txtCoin.text = GameManager.Instance.Coin.ToString();
+    }
     private void OnInit()
     {
+
+        btnSetting.onClick.AddListener(() =>
+        {
+            SettingButton();
+        });
+        btnBackMainMenu.onClick.AddListener(() =>
+        {
+            BackMainMenuButton();
+        });
+        btnUseItem.onClick.AddListener(() =>
+        {
+            UseButton();
+        });
         //load weapon, hat, pant
         for (int i = 0; i < SkinData.Instance.weaponSO.listWeapon.Count; i++)
         {
@@ -108,11 +112,11 @@ public class CanvasCollect : UICanvas
             collectItemUI.gameObject.SetActive(false);
             CollectManager.Instance.listItemUI.Add(collectItemUI);
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 2; i >= 0; i--)
         {
             SkinItemUI skinItemUI = Instantiate(skinItemUIPrefab, SkinToggleGroup.transform);
             skinItemUI.SetSkinItemUI((ItemType)i, SkinToggleGroup, ((ItemType)i).ToString());
-
+            skinItemUI.OnChangeValue();
         }
 
     }

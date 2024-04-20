@@ -8,6 +8,7 @@ public class CanvasLevel : UICanvas
 {
     [SerializeField] private Button btnSetting;
     [SerializeField] private Button btnBackMainMenu;
+    [SerializeField] private Text txtCoin;
     [SerializeField] private Transform gridLayoutGroup;
     [SerializeField] private LevelItemUI levelItemUI;
     [SerializeField] private LevelSO levelSO;
@@ -16,20 +17,6 @@ public class CanvasLevel : UICanvas
     private void Start()
     {
         OnInit();
-    }
-
-    public override void SetUp()
-    {
-        base.SetUp();
-
-        btnBackMainMenu.onClick.AddListener(() =>
-        {
-            BackMainMenuButton();
-        });
-        btnSetting.onClick.AddListener(() =>
-        {
-            SettingButton();
-        });
     }
 
     private void SettingButton()
@@ -41,8 +28,22 @@ public class CanvasLevel : UICanvas
         Close(0);
         UIManager.Instance.OpenUI<CanvasMainMenu>();
     }
+    public override void SetUp()
+    {
+        base.SetUp();
+        txtCoin.text = GameManager.Instance.Coin.ToString();
+    }
     private void OnInit()
     {
+
+        btnBackMainMenu.onClick.AddListener(() =>
+        {
+            BackMainMenuButton();
+        });
+        btnSetting.onClick.AddListener(() =>
+        {
+            SettingButton();
+        });
         for (int i = 0; i < levelSO.listLevel.Count; i++)
         {
             LevelItemUI level = Instantiate(levelItemUI, gridLayoutGroup);

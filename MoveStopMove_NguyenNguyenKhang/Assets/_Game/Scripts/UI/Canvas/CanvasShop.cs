@@ -9,6 +9,7 @@ public class CanvasShop : UICanvas
     [SerializeField] private Button btnBackMainMenu;
     [SerializeField] private Button btnSetting;
     [SerializeField] private Button btnBuyItem;
+    [SerializeField] private Text txtCoin;
     [SerializeField] private Transform gridLayoutGroup;
     [SerializeField] private ToggleGroup SkinToggleGroup;
     [SerializeField] private ToggleGroup shopItemUIToggleGroup;
@@ -19,14 +20,29 @@ public class CanvasShop : UICanvas
     {
         OnInit();
     }
-
+    public override void SetUp()
+    {
+        base.SetUp();
+        txtCoin.text = GameManager.Instance.Coin.ToString();
+    }
     private void OnInit()
     {
-
+        btnBackMainMenu.onClick.AddListener(() =>
+        {
+            BackMainMenuButton();
+        });
+        btnSetting.onClick.AddListener(() =>
+        {
+            SettingButton();
+        });
+        btnBuyItem.onClick.AddListener(() =>
+        {
+            BuyItemButton();
+        });
         //load weapon, hat, pant
         for (int i = 0; i < SkinData.Instance.weaponSO.listWeapon.Count; i++)
         {
-            if (PlayerPrefs.GetInt(KeyConstant.WEAPON + i) == 0)
+            if (UnitDataManager.Instance.UnitData.listWeapon[i] == false)
             {
                 WeaponItemData weaponItemData = SkinData.Instance.weaponSO.listWeapon[i];
                 ShopItem shopItem = new ShopItem(ItemType.Weapon, i, weaponItemData.imgWeapon, weaponItemData.price);
@@ -41,7 +57,7 @@ public class CanvasShop : UICanvas
         for (int i = 0; i < SkinData.Instance.hatSO.listHat.Count; i++)
         {
 
-            if (PlayerPrefs.GetInt(KeyConstant.HAT + i) == 0)
+            if (UnitDataManager.Instance.UnitData.listHat[i] == false)
             {
                 HatItemData hatItemData = SkinData.Instance.hatSO.listHat[i];
                 ShopItem shopItem = new ShopItem(ItemType.Hat, i, hatItemData.imgHat, hatItemData.price);
@@ -55,7 +71,7 @@ public class CanvasShop : UICanvas
         for (int i = 0; i < SkinData.Instance.pantSO.listPant.Count; i++)
         {
 
-            if (PlayerPrefs.GetInt(KeyConstant.PANT + i) == 0)
+            if(UnitDataManager.Instance.UnitData.listPant[i] == false)
             {
                 PantItemData pantItemData = SkinData.Instance.pantSO.listPant[i];
                 ShopItem shopItem = new ShopItem(ItemType.Pant, i, pantItemData.imgPant, pantItemData.price);
@@ -65,31 +81,15 @@ public class CanvasShop : UICanvas
                 ShopManager.Instance.listItemUI.Add(shopItemUI);
             }
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 2; i >=0; i--)
         {
             SkinItemUI skinItemUI = Instantiate(skinItemUIPrefab, SkinToggleGroup.transform);
             skinItemUI.SetSkinItemUI((ItemType)i, SkinToggleGroup, ((ItemType)i).ToString());
+            skinItemUI.OnChangeValue();
 
         }
     }
 
-    public override void SetUp()
-    {
-        base.SetUp();
-
-        btnBackMainMenu.onClick.AddListener(() =>
-        {
-            BackMainMenuButton();
-        });
-        btnSetting.onClick.AddListener(() =>
-        {
-            SettingButton();
-        });
-        btnBuyItem.onClick.AddListener(() =>
-        {
-            BuyItemButton();
-        });
-    }
 
     private void SettingButton()
     {

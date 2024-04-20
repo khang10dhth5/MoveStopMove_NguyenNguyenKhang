@@ -6,14 +6,28 @@ using UnityEngine;
 public class GameManager : SingletonMono<GameManager>
 {
     public GameState gameState;
-    private int coin;
-
+    private int coin=0;
+    
     public int Coin { get => coin; set => coin = value; }
-
-    private void Start()
+    private void Awake()
     {
         gameState = GameState.Begin;
-        Coin = 1000;
+        if (!PlayerPrefs.HasKey(KeyConstant.COIN))
+        {
+            PlayerPrefs.SetInt(KeyConstant.COIN, coin);
+        }
+        else
+        {
+            coin = PlayerPrefs.GetInt(KeyConstant.COIN);
+        }
+        
+    }
+
+
+    internal void GetReward(int reward)
+    {
+        Coin += reward;
+        PlayerPrefs.SetInt(KeyConstant.COIN, Coin);
     }
 
     internal void EndGame(bool isWin)

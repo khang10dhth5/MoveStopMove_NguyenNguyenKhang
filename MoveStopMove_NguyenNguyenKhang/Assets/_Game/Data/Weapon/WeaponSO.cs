@@ -12,7 +12,6 @@ public class WeaponItemData
 {
     public WeaponType weaponType;
     public int price;
-    public float speed;
     public Sprite imgWeapon;
     public WeaponBase weaponPrefab;
 }

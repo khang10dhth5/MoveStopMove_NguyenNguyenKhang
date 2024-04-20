@@ -22,8 +22,20 @@ public class PoolAmount
 }
 public enum PoolType
 {
-    AxeBullet,
-    BoomerangBullet,
-    SwordBullet,
-    Bot,
+    AxeWeapon=0,
+    BoomerangWeapon=1,
+    SwordWeapon=2,
+    AxeBullet=3,
+    BoomerangBullet=4,
+    SwordBullet=5,
+    ArrowHat=6,
+    CowboyHat=7,
+    CrownHat=8,
+    EarHat=9,
+    HeadPhoneHat=10,
+    HornHat=11,
+    PolliceHat=12,
+    StrawHat=13,
+    Bot=14,
+
 }

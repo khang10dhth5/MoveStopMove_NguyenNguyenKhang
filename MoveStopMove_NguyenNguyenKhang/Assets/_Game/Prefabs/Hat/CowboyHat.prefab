@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6042000680014880566}
+  - component: {fileID: 5363377105682217132}
   m_Layer: 0
   m_Name: CowboyHat
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 7686592724388899863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5363377105682217132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043828809417818845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8648ea909cef86e4f9cbefc809369b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 7
 --- !u!1 &4451592428651138869
 GameObject:
   m_ObjectHideFlags: 0

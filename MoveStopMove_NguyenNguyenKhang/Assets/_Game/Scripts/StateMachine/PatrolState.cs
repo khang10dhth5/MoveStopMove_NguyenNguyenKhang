@@ -15,9 +15,9 @@ public class PatrolState : IState
         {
             enemy.ChangeState(new AttackState());
         }
-        else if(!enemy.isMoving)
+        else if(!enemy.IsMoving)
         {
-            enemy.nav.SetDestination(enemy.RandomDestination());
+            enemy.Nav.SetDestination(enemy.RandomDestination());
         }
     }
     public void OnExit(Enemy enemy)

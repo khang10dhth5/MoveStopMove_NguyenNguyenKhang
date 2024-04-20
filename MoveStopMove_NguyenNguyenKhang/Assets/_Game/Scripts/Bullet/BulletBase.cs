@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class BulletBase : GameUnit
 {
+
+    [SerializeField] protected float timeActive;
+    [SerializeField] protected float moveSpeed;
+
     protected Character attacker;
     protected Vector3 targetPos;
     protected Action<Character, Character> onHit;
 
-    [SerializeField] protected float moveSpeed;
-
-
-    private void OnEnable()
+    public virtual void OnEnable()
     {
-        Invoke("OnDespawn", 2f);
+        if (attacker != null)
+        {
+            TF.localScale = new Vector3(1, 1, 1) + new Vector3(0.1f, 0.1f, 0.1f) * (attacker.currentLevel);
+        }
     }
     public virtual void OnInit(Character attacker, Vector3 targetPos, Action<Character, Character> onHit)
     {
@@ -28,7 +32,7 @@ public class BulletBase : GameUnit
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(TagName.Character.ToString()))
+        if(other.CompareTag(KeyConstant.TAG_CHACRACTER))
         {
             Character victim = Cache.GetCharacter(other);
             if(victim!=attacker)

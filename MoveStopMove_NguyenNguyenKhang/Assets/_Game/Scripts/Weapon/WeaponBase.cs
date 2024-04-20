@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponBase : MonoBehaviour
+public class WeaponBase : GameUnit
 {
     [SerializeField] protected Transform bulletPoint;
     [SerializeField] protected BulletBase bulletPrefab;

@@ -13,5 +13,5 @@ public class HatItemData
     public HatType hatType;
     public int price;
     public Sprite imgHat;
-    public GameObject hatPrefab;
+    public Hat hatPrefab;
 }

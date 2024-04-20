@@ -5,47 +5,61 @@ using UnityEngine.AI;
 
 public class LevelManager : SingletonMono<LevelManager>
 {
-    public int characterAmount;
+    [SerializeField] private Map[] listMapPrefab;
 
-    private Map currentMap;
+    [HideInInspector] public Map currentMap;
+
+    public List<Character> listCharacter;
+
     private int currentLevel;
     
     internal void CreateGame(int index)
     {
-        Map map = Resources.Load<Map>(KeyConstant.MAP_PATH + index);
+        listCharacter = new List<Character>();
+        UIManager.Instance.OpenUI<CanvasGamePlay>();
+        Map map = listMapPrefab[index];
         currentMap = Instantiate(map);
         currentLevel = index;
 
         NavMesh.RemoveAllNavMeshData();
         NavMesh.AddNavMeshData(currentMap.navMesh);
-
-        characterAmount = currentMap.enemyAmount + 1;
-
-        UIManager.Instance.OpenUI<CanvasGamePlay>();
+        
     }
-    public void countCharacter()
+    public void RemoveCharacter(Character character)
     {
-        characterAmount--;
-        if(characterAmount==1 && !currentMap.player.isDead)
+        listCharacter.Remove(character);
+        if (listCharacter.Count==0 && !currentMap.player.isDead)
         {
             GameManager.Instance.EndGame(true);
         }
     }
     public void DestroyMap()
     {
+        OffscreenIndicator.DestroyIndicator();
         UIManager.Instance.CloseAll();
         Destroy(currentMap.player.gameObject);
         Destroy(currentMap.gameObject);
+        SimplePool.CollectAll();
     }
     public void RetryGame()
     {
         DestroyMap();
+        Invoke(nameof(CreateNewGame), 0.2f);
+    }
+    private void CreateNewGame()
+    {
         CreateGame(currentLevel);
     }
     public void NextLevel()
     {
-        DestroyMap();
+        
         currentLevel += 1;
+        if(currentLevel>=listMapPrefab.Length)
+        {
+            currentLevel -= 1;
+            return;
+        }
+        DestroyMap();
         CreateGame(currentLevel);
     }
 }

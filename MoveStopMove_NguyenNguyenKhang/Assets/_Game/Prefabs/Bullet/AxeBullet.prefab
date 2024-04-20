@@ -67,8 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384ee5e599eb9eb4288af72a1e96b238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 0
-  moveSpeed: 10
+  poolType: 3
+  timeActive: 2
+  moveSpeed: 15
 --- !u!1001 &5081640072582355318
 PrefabInstance:
   m_ObjectHideFlags: 0
