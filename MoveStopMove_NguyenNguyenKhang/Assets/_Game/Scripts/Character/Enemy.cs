@@ -18,11 +18,7 @@ public class Enemy : Character
     public float AttackTime { get => attackTime; set => attackTime = value; }
 
     private IState currentState;
-    private void Start()
-    {
-        OnInit();
-        GetSkin();
-    }
+
     private void Update()
     {
         if(currentState!=null && !isDead)
@@ -40,18 +36,18 @@ public class Enemy : Character
         base.OnInit();
         currentState = new IdleState();
         IsMoving = false;
-        
+        GetSkin();
     }
 
     public  void GetSkin()
     {
 
         int weaponIndex = UnityEngine.Random.Range(0, SkinData.Instance.weaponSO.listWeapon.Count);
-        currentSkin.weapon = SimplePool.Spawn<WeaponBase>(KeyConstant.ConvertWeaponTypeToPoolType((WeaponType)weaponIndex), weaponTransform.position, Quaternion.identity);
+        currentSkin.weapon = SimplePool.Spawn<WeaponBase>(KeyConstant.ConvertWeaponTypeToPoolType((WeaponType)weaponIndex), weaponTransform.position, weaponTransform.rotation);
         currentSkin.weapon.TF.SetParent(weaponTransform);
 
         int hatIndex = UnityEngine.Random.Range(0, SkinData.Instance.hatSO.listHat.Count);
-        currentSkin.hat = SimplePool.Spawn<Hat>(KeyConstant.ConvertHatTypeToPoolType((HatType)hatIndex), hatTransform.position, Quaternion.identity);
+        currentSkin.hat = SimplePool.Spawn<Hat>(KeyConstant.ConvertHatTypeToPoolType((HatType)hatIndex), hatTransform.position, hatTransform.rotation);
         currentSkin.hat.TF.SetParent(hatTransform);
 
 

@@ -32,6 +32,19 @@ public class CollectItemUI : MonoBehaviour
         if (toggle.isOn)
         {
            CollectManager.Instance.collectItemSelected = this;
+           if (collectItem.itemType == ItemType.Weapon)
+           {
+                UIManager.Instance.characterPreview.SetWeapon((WeaponType)collectItem.itemIndex);
+           }
+           if (collectItem.itemType == ItemType.Hat)
+           {
+                UIManager.Instance.characterPreview.SetHat((HatType)collectItem.itemIndex);
+           }
+           if (collectItem.itemType == ItemType.Pant)
+           {
+                UIManager.Instance.characterPreview.SetPant((PantType)collectItem.itemIndex);
+           }
+
         }
     }
 }

@@ -21,6 +21,11 @@ public class CanvasMainMenu : UICanvas
         txtCoin.text = GameManager.Instance.Coin.ToString();
     }
 
+    private void OnEnable()
+    {
+        UIManager.Instance.characterPreview.SetCurrentSkin();
+    }
+
     private void OnInit()
     {
         btnSetting.onClick.AddListener(() =>

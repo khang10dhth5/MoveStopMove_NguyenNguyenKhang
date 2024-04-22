@@ -22,6 +22,19 @@ public class ShopItemUI : MonoBehaviour
         if(toggle.isOn)
         {
             ShopManager.Instance.shopItemSelected = this;
+            if(shopItem.itemType==ItemType.Weapon)
+            {
+                UIManager.Instance.characterPreview.SetWeapon((WeaponType)shopItem.itemIndex);
+            }
+            if (shopItem.itemType == ItemType.Hat)
+            {
+                UIManager.Instance.characterPreview.SetHat((HatType)shopItem.itemIndex);
+            }
+            if (shopItem.itemType == ItemType.Pant)
+            {
+                UIManager.Instance.characterPreview.SetPant((PantType)shopItem.itemIndex);
+            }
+
         }
     }
 

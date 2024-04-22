@@ -75,16 +75,15 @@ public class OffscreenIndicator : MonoBehaviour
             Vector3 posIndicator = new Vector3();
             if(target.x>0)
             {
-                posIndicator.x = (rect.width/2)-2;
+                posIndicator.x = (rect.width/2)-10;
             }
             else
             {
-                posIndicator.x = (-rect.width/2)+2;
+                posIndicator.x = (-rect.width/2)+10;
             }
             posIndicator.y = Mathf.Sin(angle) * rect.height / 2;
             posIndicator.z = indicatorItem.indicatorUI.TF.position.z;
             indicatorItem.indicatorUI.TF.position = posIndicator;
-
             
            //rotation
             Vector3 rotIndicator = indicatorItem.indicatorUI.TF.rotation.eulerAngles;

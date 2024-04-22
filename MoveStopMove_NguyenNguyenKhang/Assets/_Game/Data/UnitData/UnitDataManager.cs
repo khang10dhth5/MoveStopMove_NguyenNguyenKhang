@@ -8,10 +8,11 @@ public class UnitDataManager :SingletonMono<UnitDataManager>
 
     public UnitData UnitData { get => unitData; set => unitData = value; }
 
-    private void Start()
+    private void Awake()
     {
         UnitData = LoadData();
     }
+
     public void SaveUnitData(UnitData unitData)
     {
         string s = JsonUtility.ToJson(unitData);

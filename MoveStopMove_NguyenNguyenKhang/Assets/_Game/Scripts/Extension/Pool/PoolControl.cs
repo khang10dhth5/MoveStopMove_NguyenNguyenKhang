@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolControl : MonoBehaviour
+public class PoolControl : SingletonMono<PoolControl>
 {
     [SerializeField] PoolAmount[] poolAmounts;
+    [SerializeField] private Transform tf;
+
+    public Transform TF { get => tf; set => tf = value; }
+
     private void Awake()
     {
         for(int i=0;i<poolAmounts.Length;i++)

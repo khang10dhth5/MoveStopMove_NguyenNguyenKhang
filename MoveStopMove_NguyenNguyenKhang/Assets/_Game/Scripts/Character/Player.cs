@@ -77,16 +77,20 @@ public class Player : Character
    
         if (UnitDataManager.Instance.UnitData.currentHatIndex!= -1)
         {
-            currentSkin.hat = SimplePool.Spawn<Hat>(KeyConstant.ConvertHatTypeToPoolType((HatType)UnitDataManager.Instance.UnitData.currentHatIndex), hatTransform.position, Quaternion.identity);
+            currentSkin.hat = SimplePool.Spawn<Hat>(KeyConstant.ConvertHatTypeToPoolType((HatType)UnitDataManager.Instance.UnitData.currentHatIndex), hatTransform.position, hatTransform.rotation);
             currentSkin.hat.TF.SetParent(hatTransform);
         }
     }
 
     private void GetWeapon()
     {
-        currentSkin.weapon = SimplePool.Spawn<WeaponBase>(KeyConstant.ConvertWeaponTypeToPoolType((WeaponType)UnitDataManager.Instance.UnitData.currentWeaponIndex), weaponTransform.position, Quaternion.identity);
+        currentSkin.weapon = SimplePool.Spawn<WeaponBase>(KeyConstant.ConvertWeaponTypeToPoolType((WeaponType)UnitDataManager.Instance.UnitData.currentWeaponIndex), weaponTransform.position, weaponTransform.rotation);
         currentSkin.weapon.TF.SetParent(weaponTransform);
     }
-
+    private void OnDestroy()
+    {
+        SimplePool.Despawn(currentSkin.weapon);
+        SimplePool.Despawn(currentSkin.hat);
+    }
 
 }

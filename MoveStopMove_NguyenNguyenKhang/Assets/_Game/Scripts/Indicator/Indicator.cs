@@ -5,6 +5,8 @@ using UnityEngine;
 public class Indicator : MonoBehaviour
 {
     public Transform TF;
+
+
     public void SetState(bool isActive)
     {
         gameObject.SetActive(isActive);

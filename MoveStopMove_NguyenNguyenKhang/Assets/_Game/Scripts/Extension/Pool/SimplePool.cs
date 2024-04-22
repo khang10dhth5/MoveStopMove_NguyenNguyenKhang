@@ -134,6 +134,7 @@ public class Pool
             actives.Remove(unit);
             inactives.Enqueue(unit);
             unit.gameObject.SetActive(false);
+            unit.transform.SetParent(PoolControl.Instance.TF);
         }
     }
 

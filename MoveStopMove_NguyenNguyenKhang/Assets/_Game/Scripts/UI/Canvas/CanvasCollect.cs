@@ -20,6 +20,7 @@ public class CanvasCollect : UICanvas
         OnInit();
     }
 
+
     private void UseButton()
     {
         CollectItem collectIem = CollectManager.Instance.collectItemSelected.collectItem;

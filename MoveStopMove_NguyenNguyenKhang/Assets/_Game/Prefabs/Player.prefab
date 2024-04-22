@@ -382,7 +382,7 @@ MonoBehaviour:
   currentLevel: 0
   isDead: 0
   rb: {fileID: 5057186338431263666}
-  moveSpeed: 1000
+  moveSpeed: 400
 --- !u!1001 &830990071062387154
 PrefabInstance:
   m_ObjectHideFlags: 0

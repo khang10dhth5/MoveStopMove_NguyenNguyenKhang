@@ -6,14 +6,17 @@ using UnityEngine.UI;
 
 public class UIManager : SingletonMono<UIManager>
 {
-    Dictionary<System.Type, UICanvas> canvasPrefabs= new Dictionary<Type, UICanvas>();
-    Dictionary<System.Type, UICanvas> canvasActives = new Dictionary<Type, UICanvas>();
     [SerializeField] private Transform parent;
 
+    public CharacterPreview characterPreview;
+
+    Dictionary<System.Type, UICanvas> canvasPrefabs= new Dictionary<Type, UICanvas>();
+    Dictionary<System.Type, UICanvas> canvasActives = new Dictionary<Type, UICanvas>();
+    
+    
 
     private void Awake()
     {
-
         //load ui prefab tu resources
         UICanvas[] prefabs = Resources.LoadAll<UICanvas>(KeyConstant.UI_PATH);
         for(int i=0;i< prefabs.Length;i++)
